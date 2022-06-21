@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/macro';
 import logo from '../assets/logo.png'
-
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
 
 
 // Create a Wrapper component that'll render a <section> tag with some styles
@@ -37,21 +39,17 @@ const Sections = styled.section`
   text-align: center;
   color: palevioletred;
   justify-content: center;
- > ul{
-    display: flex;
-    justify-content: center;
-   > li{
-      font-size: 1.5rem;
-    }
-  }
+
+  
 `;
 
-const Menu = styled.li`
+const Menu = styled.button`
   cursor: pointer;
-  display: inline;
-  /* The resulting background color will be based on the bg props. */
+  font-size: 1.5rem;
+  border-width: 0;
+  background-color: transparent;
+ // The resulting background color will be based on the bg props. 
   color: ${props => props.imp === true ? "#55eeff" : "white"};
-  margin: 4%;
 `;
 
 const Login = styled.section`
@@ -62,20 +60,7 @@ const Login = styled.section`
   align-items: center;
 `;
 
-const Button = styled.button`
-  cursor: pointer;
-  cursor: pointer;
-  width: 100%;
-	padding: 1em;
-	background: hsl(233deg 100% 71% / 88%);
-	border: none;
-	border-radius: 30px;
-  font-family: 'Regular';
-	font-weight: 600;
-  font-size: 1rem;
-  color: white;
-  height: auto;
-`;
+
 
 
 
@@ -83,23 +68,28 @@ const Button = styled.button`
 
 function NavBar() {
   return (
-    <Header>
-      <Logo>
-        <img src={logo} alt=''/>
-        <h1>Clothes4You</h1>
-      </Logo>
-        <Sections>
-            <ul>
-              <Menu imp={true}>Ofertas</Menu>
-              <Menu>Sobre nosotros</Menu>
-              <Menu>FAQ</Menu>
-              <Menu>Partners</Menu>
-            </ul>
-        </Sections>
-      <Login >
-      <Button> Login </Button>
-      </Login>
-    </Header>
+    <Grid container>
+      <Header>
+        <Logo>
+          <img src={logo} alt=''/>
+          <h1>Clothes4You</h1>
+        </Logo>
+        <Stack
+          direction="row"
+          justifyContent="space-around"
+          alignItems="center"
+          spacing={8}
+        >
+          <Menu> Ofertas</Menu> 
+          <Menu>Sobre nosotros</Menu> 
+          <Menu>FAQ</Menu> 
+          <Menu>Partners</Menu> 
+        </Stack>
+        <Login >
+        <Button variant="contained">Login</Button>
+        </Login>
+      </Header>
+    </Grid>
   )
 }
 

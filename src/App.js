@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+<meta name="viewport" content="initial-scale=1, width=device-width" />
 
 function App() {
   return (
