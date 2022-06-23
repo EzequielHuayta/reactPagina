@@ -1,15 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import reportWebVitals from './reportWebVitals';
-import NavBar from './components/NavBar';
-import FontStyle from './fontStyles';
-import GlobalStyles from './globalStyles';
+
+import App from './App';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     <>
-    <FontStyle />
-    <GlobalStyles />
-    <NavBar />
+    <App/>
+
     </>
 );
 

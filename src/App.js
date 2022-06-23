@@ -1,25 +1,18 @@
-import logo from './logo.svg';
-import './App.css';
+import NavBar from './components/NavBar';
+import FontStyle from './fontStyles';
+import GlobalStyles from './globalStyles';
+import { ItemListContainer } from './components/ItemListContainer';
+
 <meta name="viewport" content="initial-scale=1, width=device-width" />
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <FontStyle />
+      <GlobalStyles />
+      <NavBar />
+      <ItemListContainer />
+    </>
   );
 }
 

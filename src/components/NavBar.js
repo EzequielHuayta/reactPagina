@@ -4,13 +4,14 @@ import logo from '../assets/logo.png'
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
-
+import { CartWidget } from './CartWidget';
 
 // Create a Wrapper component that'll render a <section> tag with some styles
 const Header = styled.section`
   display: flex;
   width: 100%;
   justify-content: space-evenly;
+  align-items: center;
   background-color: rgb(45, 115, 227,0.5);
   user-select: none;
   -moz-user-select: none;
@@ -34,14 +35,7 @@ const Logo = styled.section`
 
 `;
 
-const Sections = styled.section`
-  width: 40%;
-  text-align: center;
-  color: palevioletred;
-  justify-content: center;
 
-  
-`;
 
 const Menu = styled.button`
   cursor: pointer;
@@ -88,9 +82,11 @@ function NavBar() {
         <Login >
         <Button variant="contained">Login</Button>
         </Login>
+        <CartWidget/>
       </Header>
     </Grid>
   )
 }
+
 
 export default NavBar
