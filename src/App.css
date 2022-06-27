@@ -1,6 +1,25 @@
+
+
 .App {
   text-align: center;
 }
+
+h1{
+  font-family: 'Titles';
+}
+
+body, html{
+margin:0;
+padding:0;
+}
+@font-face {
+  font-family: 'Titles';
+  src: url('./assets/fonts/KaiseiDecol-Bold.ttf') format('ttf'),
+  }
+  @font-face {
+  font-family: 'Regular';
+  src: url('./assets/fonts/KaiseiDecol-Regular.ttf') format('ttf'),
+  }
 
 .App-logo {
   height: 40vmin;

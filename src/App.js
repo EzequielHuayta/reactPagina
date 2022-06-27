@@ -8,10 +8,9 @@ import { ItemListContainer } from './components/ItemListContainer';
 function App() {
   return (
     <>
-      <FontStyle />
-      <GlobalStyles />
+
       <NavBar />
-      <ItemListContainer />
+      <ItemListContainer saludo={'Bienvenido a mi pagina react!'}/>
     </>
   );
 }

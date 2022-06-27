@@ -1,10 +1,13 @@
 import React from 'react'
+import { ItemCount } from './ItemCount'
 
-export const ItemListContainer = () => {
+export const ItemListContainer = ({saludo}) => {
+
 
   return (
     <>
-    <h1>Bienvenido a mi pagina react!</h1>
+    <h1>{saludo}</h1>
+    <ItemCount stock = {5} initial = {1}  />
     </>
   )
 }
