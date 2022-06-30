@@ -22,6 +22,10 @@ export const ItemCount = ({stock, initial}) => {
         setContProduct( contProduct + 1)
         }
     }
+
+    const addCart = () =>{
+      console.log(contProduct)
+    }
   return (
     <>
 
@@ -37,6 +41,9 @@ export const ItemCount = ({stock, initial}) => {
             </Typography>
             <Button onClick={addProduct}> <AddIcon /> </Button>
         </ButtonGroup>
+          <Button onClick={addCart}sx ={{marginTop: 4}}variant="contained" color="success">
+            Añadir al carrito
+          </Button>
       </CardContent>
 
     </Card>
