@@ -5,7 +5,7 @@ import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { CartWidget } from './CartWidget';
-
+import { Link } from 'react-router-dom';
 // Create a Wrapper component that'll render a <section> tag with some styles
 const Header = styled.section`
   display: flex;
@@ -55,7 +55,12 @@ const Login = styled.section`
 `;
 
 
-
+const categories = [
+  {name: "Ofertas", id:0, route:"/category/ofertas"},
+  {name: "Sobre nosotros", id:1, route:"/category/sobreNosotros"},,
+  {name: "FAQ", id:2, route:"/category/FAQ"},
+  {name: "Partners", id:3, route:"/category/Partners"},
+]
 
 
 
@@ -64,25 +69,22 @@ function NavBar() {
   return (
     <Grid container>
       <Header>
-        <Logo>
-          <img src={logo} alt=''/>
-          <h1>Clothes4You</h1>
-        </Logo>
+          <Logo>
+            <img src={logo} alt=''/>
+            <h1>Clothes4You</h1>
+          </Logo>
         <Stack
           direction="row"
           justifyContent="space-around"
           alignItems="center"
           spacing={8}
         >
-          <Menu> Ofertas</Menu> 
-          <Menu>Sobre nosotros</Menu> 
-          <Menu>FAQ</Menu> 
-          <Menu>Partners</Menu> 
+        {categories.map((category => <Menu key={category.id}>{category.name}</Menu>))}
         </Stack>
         <Login >
         <Button variant="contained">Login</Button>
         </Login>
-        <CartWidget/>
+          <CartWidget/>
       </Header>
     </Grid>
   )

@@ -9,7 +9,7 @@ import RemoveIcon from '@mui/icons-material/Remove';
 export const ItemCount = ({stock, initial}) => {
 
     const [contProduct, setContProduct] = useState(initial)
-
+  
 
     const removeProduct = () =>{
       if(contProduct > 1){

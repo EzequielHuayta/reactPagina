@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { ItemCount } from './ItemCount'
 import { ItemList } from './ItemList'
+import { useParams } from 'react-router-dom'
 
 export const ItemListContainer = ({saludo}) => {
 
@@ -18,6 +19,9 @@ export const ItemListContainer = ({saludo}) => {
 
   const [product, setProduct] = useState([]);
   const [loaded, setLoaded] = useState(true);
+
+  const resultado = useParams();
+
 
   useEffect(() => {
     promesa.then(res=>{

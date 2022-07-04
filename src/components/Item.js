@@ -1,4 +1,4 @@
-import { Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
+import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import React from 'react'
 
@@ -30,6 +30,7 @@ export const Item = ( {product}) => {
             <Typography variant="body2" color="text.secondary">
               Stock: {stock}
             </Typography>
+            <Button size="small">Details</Button>
           </CardActions>
 
       </Card>
