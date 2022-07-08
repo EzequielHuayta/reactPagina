@@ -15,22 +15,23 @@ export const ItemListContainer = ({saludo}) => {
 
   const [product, setProduct] = useState([]);
   const [loaded, setLoaded] = useState(true);
-  const resultado = useParams();
-
+  const {categoryId} = useParams();
   useEffect(() => {
-    promesa.then(res=>{
-      setProduct(res)
-    }).catch(err => {
-      console.log(err);
-    }).finally(() => {
-      setLoaded(false);
-    })
-  }, [])
+    if (categoryId){
+      setProduct(data.filter((element) => element.category === categoryId))
+    }
+    else {
+      promesa.then((data) => {
+        setProduct(data);
+        setLoaded(false);
+      })
+    }
+  }, [categoryId])
 
   return (
     <>
     <h1>{saludo}</h1>
-    <ItemCount stock = {5} initial = {1}  />
+    {/*<ItemCount stock = {5} initial = {1}  /> */}
     <div>
     { loaded ? <h1>Loading...</h1> : <ItemList productList = {product}/>}
     </div>

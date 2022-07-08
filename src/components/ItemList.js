@@ -10,7 +10,7 @@ export const ItemList = ({productList}) => {
   return (
     <>
     <Stack sx={{justifyContent:'center', display:'flex', marginTop: 2}} direction="row" spacing={2}>
-      {productList.map ( product => <Link key={product.id} to={product.route}><Item key={product.id} product={product}> </Item></Link>)}
+      {productList.map ( product => <Link key={product.id} to={product.id}><Item key={product.id} product={product}> </Item></Link>)}
     </Stack>
     </>
   )

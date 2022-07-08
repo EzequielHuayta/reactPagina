@@ -56,10 +56,11 @@ const Login = styled.section`
 
 
 const categories = [
-  {name: "Ofertas", id:0, route:"/category/ofertas"},
-  {name: "Sobre nosotros", id:1, route:"/category/sobreNosotros"},,
-  {name: "FAQ", id:2, route:"/category/FAQ"},
-  {name: "Partners", id:3, route:"/category/Partners"},
+  {name: "Pantalones", id:0, route:"/category/Pantalones"},
+  {name: "Zapatillas", id:1, route:"/category/Zapatillas"},
+  {name: "Remeras", id:2, route:"/category/Remeras"},
+  {name: "Buzos", id:3, route:"/category/Buzos"},
+
 ]
 
 

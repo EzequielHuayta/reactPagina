@@ -6,7 +6,7 @@ export const Item = ( {product}) => {
   const {picture, name, price, description , stock} = product
 
   return (
-
+    <div>
       <Card sx={{ maxWidth: 345 }}>
         <CardMedia 
           component="img"
@@ -34,6 +34,6 @@ export const Item = ( {product}) => {
           </CardActions>
 
       </Card>
-
+      </div>
   )
 }
