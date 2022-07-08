@@ -19,6 +19,7 @@ export const ItemListContainer = ({saludo}) => {
   useEffect(() => {
     if (categoryId){
       setProduct(data.filter((element) => element.category === categoryId))
+      setLoaded(false);
     }
     else {
       promesa.then((data) => {
