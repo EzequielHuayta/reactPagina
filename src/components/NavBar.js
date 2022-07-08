@@ -69,22 +69,26 @@ function NavBar() {
   return (
     <Grid container>
       <Header>
+        <Link to="/">
           <Logo>
             <img src={logo} alt=''/>
             <h1>Clothes4You</h1>
           </Logo>
+        </Link>
         <Stack
           direction="row"
           justifyContent="space-around"
           alignItems="center"
           spacing={8}
         >
-        {categories.map((category => <Menu key={category.id}>{category.name}</Menu>))}
+        {categories.map((category => <Link key={category.id} to={category.route}><Menu>{category.name}</Menu></Link>))}
         </Stack>
         <Login >
         <Button variant="contained">Login</Button>
         </Login>
+        <Link to="/cart">
           <CartWidget/>
+        </Link>
       </Header>
     </Grid>
   )

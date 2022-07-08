@@ -9,7 +9,9 @@ export const ItemDetail = ({productList}) => {
 
     const {picture, price, name, stock, description} = productList
   return (
-    <Box sx={{ flexGrow: 1, display: 'flex' }}>
+    <>
+    { picture !== undefined ? 
+      <Box sx={{ flexGrow: 1, display: 'flex' }}>
         <Grid sx={{margin: 5}}container spacing={2}>
             <Grid item xs={8} sx={{justifyContent: 'center', display:'flex'}}>
                 <img alt="product" heigth="400px" width = "400px" src={picture}/> 
@@ -19,12 +21,13 @@ export const ItemDetail = ({productList}) => {
             <Typography sx= {{textAlign: 'center', display: 'flex'}}gutterBottom variant="h4" component="div">
             <AttachMoneyIcon fontSize='large'></AttachMoneyIcon>{price}
             </Typography>
-            <ItemCount  stock = {stock} initial = {1}/>
+            <ItemCount  stock = {stock} initial = {1}/> 
             <Typography sx= {{marginTop: 5}}  variant="h6" component="div"> {description} </Typography>
             </Grid>
 
         </Grid>
     </Box>
-    
+    : <h1>Loading...</h1>}
+    </>
   )
 }

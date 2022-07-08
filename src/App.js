@@ -1,6 +1,4 @@
 import NavBar from './components/NavBar';
-import FontStyle from './fontStyles';
-import GlobalStyles from './globalStyles';
 import { ItemListContainer } from './components/ItemListContainer';
 import { CartWidget } from './components/CartWidget';
 import {
@@ -14,10 +12,15 @@ import { ItemDetailContainer } from './components/ItemDetailContainer';
 function App() {
   return (
     <>
-
-    <NavBar />
-    <ItemListContainer saludo={'Bienvenido a mi pagina react!'}/>
-    <ItemDetailContainer/>
+      <BrowserRouter>
+       <NavBar />
+        <Routes>
+          <Route path="/" element={<ItemListContainer saludo={'Bienvenido a mi pagina react!'}/>}/>
+          <Route path="/category/:categoryId" element={<ItemListContainer saludo={'Bienvenido a mi pagina react!'}/>}/>
+          <Route path="/product/:productId" element={<ItemDetailContainer />}/>
+          <Route path="cart/" element={<CartWidget/>}/>
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }
