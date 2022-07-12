@@ -1,11 +1,17 @@
-import { Grid, Typography } from '@mui/material'
+import { Button, Grid, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import React from 'react'
+import React, { useState } from 'react'
 import { ItemCount } from './ItemCount';
+import { Link } from 'react-router-dom';
 
 
 export const ItemDetail = ({productList}) => {
+  const [added, setAdded] = useState(false)
+
+    const onAdd = () => {
+      setAdded(true);
+    }
 
     const {picture, price, name, stock, description} = productList
   return (
@@ -21,7 +27,15 @@ export const ItemDetail = ({productList}) => {
             <Typography sx= {{textAlign: 'center', display: 'flex'}}gutterBottom variant="h4" component="div">
             <AttachMoneyIcon fontSize='large'></AttachMoneyIcon>{price}
             </Typography>
-            <ItemCount  stock = {stock} initial = {1}/> 
+           { !added 
+           ? 
+           <ItemCount  onAdd = {onAdd} stock = {stock} initial = {1}/> 
+           :         
+           <Link  to="/cart">
+          <Button sx ={{marginTop: 4}}variant="contained" color="info">
+              Ir a pagar
+          </Button>
+        </Link> }
             <Typography sx= {{marginTop: 5}}  variant="h6" component="div"> {description} </Typography>
             </Grid>
 

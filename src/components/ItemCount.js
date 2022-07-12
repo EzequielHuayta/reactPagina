@@ -2,11 +2,12 @@ import { Button, ButtonGroup, Card, CardContent, CardHeader, Typography } from '
 import React, { useState } from 'react'
 import AddIcon from '@mui/icons-material/Add';
 import RemoveIcon from '@mui/icons-material/Remove';
+import { Link } from 'react-router-dom';
 
 
 
 
-export const ItemCount = ({stock, initial}) => {
+export const ItemCount = ({stock, initial, onAdd}) => {
 
     const [contProduct, setContProduct] = useState(initial)
   
@@ -24,7 +25,7 @@ export const ItemCount = ({stock, initial}) => {
     }
 
     const addCart = () =>{
-      console.log(contProduct)
+      onAdd();
     }
   return (
     <>
@@ -41,9 +42,11 @@ export const ItemCount = ({stock, initial}) => {
             </Typography>
             <Button onClick={addProduct}> <AddIcon /> </Button>
         </ButtonGroup>
-          <Button onClick={addCart}sx ={{marginTop: 4}}variant="contained" color="success">
-            Añadir al carrito
-          </Button>
+
+            <Button onClick={addCart}sx ={{marginTop: 2}}variant="contained" color="success">
+              Añadir al carrito
+            </Button>
+
       </CardContent>
 
     </Card>
