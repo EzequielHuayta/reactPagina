@@ -36,7 +36,7 @@ console.log(products);
               <TableCell align="center" component="th" scope="row">
               <img alt="product" heigth="300px" width = "300px" src={row.picture}/> 
               </TableCell>
-              <TableCell align="left">{row.name}</TableCell>
+              <TableCell sx={{}}align="left">{row.name}</TableCell>
               <TableCell align="left">{row.price}</TableCell>
               <TableCell align="left">{row.quantity}</TableCell>
               <TableCell align="left"><Button onClick ={ () => removeProduct(row.id)} variant="outlined" color="error">Borrar</Button></TableCell>
