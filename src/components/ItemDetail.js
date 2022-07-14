@@ -1,19 +1,23 @@
 import { Button, Grid, Typography } from '@mui/material'
 import { Box } from '@mui/system'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import { ItemCount } from './ItemCount';
 import { Link } from 'react-router-dom';
-
+import { context } from '../Context/CartContext';
 
 export const ItemDetail = ({productList}) => {
   const [added, setAdded] = useState(false)
-
-    const onAdd = () => {
+  const { addProduct } = useContext(context)
+    const onAdd = (contProduct) => {
+      productList["quantity"] = contProduct;
       setAdded(true);
+      addProduct(productList);
     }
 
     const {picture, price, name, stock, description} = productList
+
+
   return (
     <>
     { picture !== undefined ? 
