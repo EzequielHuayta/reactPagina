@@ -10,9 +10,8 @@ export const ItemDetail = ({productList}) => {
   const [added, setAdded] = useState(false)
   const { addProduct } = useContext(context)
     const onAdd = (contProduct) => {
-      productList["quantity"] = contProduct;
       setAdded(true);
-      addProduct(productList);
+      addProduct(productList, contProduct);
     }
 
     const {picture, price, name, stock, description} = productList
@@ -21,7 +20,7 @@ export const ItemDetail = ({productList}) => {
   return (
     <>
     { picture !== undefined ? 
-      <Box sx={{ flexGrow: 1, display: 'flex' }}>
+      <Box sx={{ flexGrow: 1, display: 'flex', maxHeight: '500px' }}>
         <Grid sx={{margin: 5}}container spacing={2}>
             <Grid item xs={8} sx={{justifyContent: 'center', display:'flex'}}>
                 <img alt="product" heigth="400px" width = "400px" src={picture}/> 

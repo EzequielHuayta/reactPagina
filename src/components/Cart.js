@@ -1,5 +1,6 @@
 import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
 import React, { useContext } from 'react'
+import { Link } from 'react-router-dom';
 import { context } from '../Context/CartContext'
 
 
@@ -50,7 +51,11 @@ console.log(products);
     </Container>
     </>
     :
-    <h1>Su carrito esta vacio</h1>}
+    <Container>
+    <h1>Su carrito esta vacio</h1>
+    <Link to="/"><h1>Click aqui para comprar productos!</h1></Link>
+    </Container>
+    }
     </>
   )
 

@@ -1,4 +1,4 @@
-import React, { createContext, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 
 
 
@@ -7,11 +7,26 @@ const { Provider } = context;
 export const CustomProvider = ( { children } ) => {
 
   const [products, setProducts] = useState([]);
+  
+  
+  console.log(products);
 
-  const addProduct = (product) => { 
-    console.log(product)
-    isInCart(product.id) ? console.log('existe') : setProducts([...products, product])
+  const addProduct = (product, quantity) => {
+    
+  console.log(products); 
 
+    if (isInCart(product.id)) {
+      const found = products.find((newProduct) => newProduct.id === product.id);
+      const index = products.indexOf(found);
+      const aux = [...products];
+      aux[index].quantity += quantity
+      setProducts(aux);
+    } else { 
+      console.log('no existe');
+      product.quantity = quantity;
+      setProducts([...products, product]);
+    }
+    
   };
 
   const removeProduct = (id) => {
@@ -23,20 +38,21 @@ export const CustomProvider = ( { children } ) => {
     setProducts([]);
   };
 
+
+
+
+
   const isInCart = (id) => {
 
     return products.some(product => product.id === id)
   };
 
-  const getTotal = () => {
-    console.log("total")
-  }
 
-  console.log(products);
+
   
 
   return (
-    <Provider value={{ products, addProduct, removeProduct, getTotal, clear }}>
+    <Provider value={{ products, addProduct, removeProduct, clear }}>
       {children}
     </Provider>
   )

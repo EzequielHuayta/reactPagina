@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { ItemDetail } from './ItemDetail';
 import {data} from '../data/products'
 import { useParams } from 'react-router-dom';
+import { Container } from '@mui/material';
 
 export const ItemDetailContainer = () => {
 
@@ -18,8 +19,6 @@ export const ItemDetailContainer = () => {
   }, [productId])
 
   return (
-    <>
         <ItemDetail productList = {product} /> 
-    </>
   )
 }

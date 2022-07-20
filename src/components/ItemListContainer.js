@@ -3,6 +3,7 @@ import { ItemCount } from './ItemCount'
 import { ItemList } from './ItemList'
 import { useParams } from 'react-router-dom'
 import { data } from '../data/products'
+import { Container } from '@mui/material'
 export const ItemListContainer = ({saludo}) => {
 
 
@@ -34,7 +35,7 @@ export const ItemListContainer = ({saludo}) => {
     <h1>{saludo}</h1>
     {/*<ItemCount stock = {5} initial = {1}  /> */}
     <div>
-    { loaded ? <h1>Loading...</h1> : <ItemList productList = {product}/>}
+    { loaded ? <h1>Loading...</h1> : <Container><ItemList productList = {product} /> </Container>}
     </div>
     </>
   )
