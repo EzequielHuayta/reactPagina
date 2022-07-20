@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components/macro';
 import logo from '../assets/logo.png'
 import Stack from '@mui/material/Stack';
@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import Grid from '@mui/material/Grid';
 import { CartWidget } from './CartWidget';
 import { Link } from 'react-router-dom';
+import { context } from '../Context/CartContext';
 // Create a Wrapper component that'll render a <section> tag with some styles
 const Header = styled.section`
   display: flex;
@@ -67,6 +68,8 @@ const categories = [
 
 
 function NavBar() {
+  const { getTotal } = useContext(context);
+
   return (
     <Grid container>
       <Header>
@@ -88,7 +91,7 @@ function NavBar() {
         <Button variant="contained">Login</Button>
         </Login>
         <Link to="/cart">
-          <CartWidget/>
+          <Button onClick ={getTotal}> <CartWidget/> </Button>
         </Link>
       </Header>
     </Grid>

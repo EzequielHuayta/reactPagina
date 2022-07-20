@@ -7,7 +7,7 @@ const { Provider } = context;
 export const CustomProvider = ( { children } ) => {
 
   const [products, setProducts] = useState([]);
-  
+  const [total, setTotal] = useState(0);
   
   console.log(products);
 
@@ -40,7 +40,11 @@ export const CustomProvider = ( { children } ) => {
 
 
 
-
+  const getTotal = () => {
+    let total = 0;
+    products.forEach( product => total += product.price * product.quantity)
+    setTotal(total);
+  }
 
   const isInCart = (id) => {
 
@@ -52,7 +56,7 @@ export const CustomProvider = ( { children } ) => {
   
 
   return (
-    <Provider value={{ products, addProduct, removeProduct, clear }}>
+    <Provider value={{ products, addProduct, removeProduct, clear, total, getTotal }}>
       {children}
     </Provider>
   )

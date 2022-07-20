@@ -1,17 +1,15 @@
 import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { context } from '../Context/CartContext'
 
 
 export const Cart = () => {
 
-const { products, removeProduct, clear } = useContext(context);
+const { products, removeProduct, clear, total } = useContext(context);
 
-const clickDelete = () => {
 
-}
-console.log(products);
+
   return (
     <>
     {products.length !== 0 
@@ -46,8 +44,9 @@ console.log(products);
         </TableBody>
       </Table>
     </TableContainer>
-    <Container>
-      <Button sx={{ align: "left"}} onClick ={clear} variant="outlined" color="error">Vaciar carrito</Button>
+    <Container sx={{display: 'flex', alignItems: 'center', justifyContent: 'end' }} >
+      <Button sx={{ marginRight: 2 }} onClick ={clear} variant="outlined" color="error">Vaciar carrito</Button>
+      <h1>Total: {total}</h1>
     </Container>
     </>
     :
