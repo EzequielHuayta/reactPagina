@@ -3,6 +3,8 @@ import { ItemDetail } from './ItemDetail';
 import {data} from '../data/products'
 import { useParams } from 'react-router-dom';
 import { Container } from '@mui/material';
+import { collection, doc, getDoc, getDocs, query, where } from 'firebase/firestore';
+import { db } from '../firebase/firebase';
 
 export const ItemDetailContainer = () => {
 
@@ -13,8 +15,11 @@ export const ItemDetailContainer = () => {
   const [selected, setSelected] = useState(false);
   useEffect(() => {
       if (productId !== undefined){
-      setProduct(data.find( element => element.id == productId))
-      setSelected(true);
+        const productsCollection = collection(db,'products');
+        const refDoc = doc(productsCollection,productId);
+        getDoc(refDoc)
+        .then(result => setProduct( {...result.data(), id: result.id}) )
+        .finally( () => setSelected(true))
       }
   }, [productId])
 

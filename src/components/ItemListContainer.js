@@ -4,8 +4,10 @@ import { ItemList } from './ItemList'
 import { useParams } from 'react-router-dom'
 import { data } from '../data/products'
 import { Container } from '@mui/material'
-export const ItemListContainer = ({saludo}) => {
+import { db } from '../firebase/firebase'
+import {getDocs, collection, query, where} from 'firebase/firestore'
 
+export const ItemListContainer = ({saludo}) => {
 
 
   const promesa = new Promise ( (res, rej)  => {
@@ -17,14 +19,37 @@ export const ItemListContainer = ({saludo}) => {
   const [product, setProduct] = useState([]);
   const [loaded, setLoaded] = useState(true);
   const {categoryId} = useParams();
+
+  
   useEffect(() => {
+
+    const productsCollection = collection(db,'products');
+
     if (categoryId){
-      setProduct(data.filter((element) => element.category === categoryId))
+      const q = query(productsCollection, where('category', '==', categoryId))
+      getDocs(q)
+      .then(result => {
+        const list = result.docs.map( product => {
+          return {
+            id: product.id, 
+            ...product.data(),
+          }
+        })
+        setProduct(list)
+      })
       setLoaded(false);
     }
     else {
-      promesa.then((data) => {
-        setProduct(data);
+      getDocs(productsCollection)
+      .then(result => {
+        
+        const list = result.docs.map( product => {
+          return {
+            id: product.id, 
+            ...product.data(),
+          }
+        })
+        setProduct(list)
         setLoaded(false);
       })
     }

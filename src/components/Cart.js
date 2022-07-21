@@ -1,5 +1,5 @@
 import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { context } from '../Context/CartContext'
 
@@ -7,7 +7,6 @@ import { context } from '../Context/CartContext'
 export const Cart = () => {
 
 const { products, removeProduct, clear, total } = useContext(context);
-
 
 
   return (
