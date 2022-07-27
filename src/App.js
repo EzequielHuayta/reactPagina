@@ -9,6 +9,7 @@ import {
 import { ItemDetailContainer } from './components/ItemDetailContainer';
 import { CustomProvider } from './Context/CartContext';
 import { Cart } from './components/Cart';
+import { Form } from './components/Form';
 <meta name="viewport" content="initial-scale=1, width=device-width" />
 
 function App() {
@@ -22,6 +23,7 @@ function App() {
             <Route path="/category/:categoryId" element={<ItemListContainer saludo={'Bienvenido a mi pagina react!'}/>}/>
             <Route path="/product/:productId" element={<ItemDetailContainer />}/>
             <Route path="cart/" element={<Cart/>}/>
+            <Route path="/payment" element={<Form/>}/>
           </Routes>
         </CustomProvider>
       </BrowserRouter>

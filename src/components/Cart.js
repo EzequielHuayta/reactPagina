@@ -3,8 +3,9 @@ import React, { useContext, useEffect, useState } from 'react'
 import { Link } from 'react-router-dom';
 import { context } from '../Context/CartContext'
 
-
 export const Cart = () => {
+
+
 
 const { products, removeProduct, clear, total } = useContext(context);
 
@@ -46,6 +47,9 @@ const { products, removeProduct, clear, total } = useContext(context);
     <Container sx={{display: 'flex', alignItems: 'center', justifyContent: 'end' }} >
       <Button sx={{ marginRight: 2 }} onClick ={clear} variant="outlined" color="error">Vaciar carrito</Button>
       <h1>Total: {total}</h1>
+      <Link  to="/payment">
+      <Button sx={{ marginRight: 2 }} variant="outlined" color="success">Pagar</Button>
+      </Link>
     </Container>
     </>
     :
