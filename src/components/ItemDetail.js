@@ -14,7 +14,7 @@ export const ItemDetail = ({productList}) => {
       addProduct(productList, contProduct);
     }
 
-    const { getTotal } = useContext(context);
+    const { getTotal,  } = useContext(context);
 
     const {picture, price, name, stock, description} = productList
 
@@ -34,13 +34,23 @@ export const ItemDetail = ({productList}) => {
             </Typography>
            { !added 
            ? 
+           
+            stock !== 0
+            ?
+            (
            <ItemCount  onAdd = {onAdd} stock = {stock} initial = {1}/> 
+            )
+            :
+            (
+              <h1>No hay stock</h1>
+              )
            :         
            <Link  to="/cart">
-          <Button onClick = {getTotal} sx ={{marginTop: 4}}variant="contained" color="info">
-              Ir a pagar
-          </Button>
-        </Link> }
+            <Button onClick = {getTotal} sx ={{marginTop: 4}}variant="contained" color="info">
+                Ir a pagar
+            </Button>
+          </Link> 
+          }
             <Typography sx= {{marginTop: 5}}  variant="h6" component="div"> {description} </Typography>
             </Grid>
 

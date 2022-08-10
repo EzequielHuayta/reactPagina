@@ -32,7 +32,7 @@ export const ItemCount = ({stock, initial, onAdd}) => {
 
     <Card sx={{ maxWidth: 275}}>
       <CardHeader
-        title="Contador"
+        title="Cantidad"
       />
     <CardContent sx = {{textAlign: 'center'}}>
         <ButtonGroup variant="contained" aria-label="outlined primary button group">

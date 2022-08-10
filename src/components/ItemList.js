@@ -9,7 +9,7 @@ export const ItemList = ({productList}) => {
     
   return (
     <>
-    <Stack sx={{justifyContent:'center', display:'flex', marginTop: 2, flexWrap: 'wrap'}} direction="row" spacing={2}>
+    <Stack sx={{justifyContent:'center', display:'flex', marginTop: 2, flexWrap: 'wrap'}} direction="row" spacing={3}>
       {productList.map ( product => <Link key={product.id} to={`/product/${product.id}`}><Item key={product.id} product={product}> </Item></Link>)}
     </Stack>
     </>

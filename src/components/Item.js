@@ -7,7 +7,7 @@ export const Item = ( {product}) => {
 
   return (
     <div>
-      <Card sx={{ maxWidth: 345, marginTop: 2, marginBottom: 2 }}>
+      <Card sx={{ maxWidth: 360, marginTop: 2, marginBottom: 2 }}>
         <CardMedia 
           component="img"
           height="140"

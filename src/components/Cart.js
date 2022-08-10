@@ -1,5 +1,5 @@
-import { Button, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
-import React, { useContext, useEffect, useState } from 'react'
+import { Button, Container, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from '@mui/material';
+import React, { useContext } from 'react'
 import { Link } from 'react-router-dom';
 import { context } from '../Context/CartContext'
 
@@ -20,9 +20,9 @@ const { products, removeProduct, clear, total } = useContext(context);
         <TableHead>
           <TableRow>
             <TableCell></TableCell>
-            <TableCell align="left">Nombre</TableCell>
-            <TableCell align="left">Precio</TableCell>
-            <TableCell align="left">Cantidad</TableCell>
+            <TableCell sx={{fontSize: '1.3rem'}} align="left">Nombre</TableCell>
+            <TableCell sx={{fontSize: '1.3rem'}} align="left">Precio</TableCell>
+            <TableCell sx={{fontSize: '1.3rem'}} align="left">Cantidad</TableCell>
             <TableCell align="right"></TableCell>
           </TableRow>
         </TableHead>
@@ -35,9 +35,9 @@ const { products, removeProduct, clear, total } = useContext(context);
               <TableCell align="center" component="th" scope="row">
               <img alt="product" heigth="300px" width = "300px" src={row.picture}/> 
               </TableCell>
-              <TableCell sx={{}}align="left">{row.name}</TableCell>
-              <TableCell align="left">{row.price}</TableCell>
-              <TableCell align="left">{row.quantity}</TableCell>
+              <TableCell sx={{fontWeight:'bold', fontSize: '1.4rem'}}align="left">{row.name}</TableCell>
+              <TableCell sx={{fontSize: '1rem'}} align="left">{row.price}</TableCell>
+              <TableCell sx={{fontSize: '1rem'}} align="left">{row.quantity}</TableCell>
               <TableCell align="left"><Button onClick ={ () => removeProduct(row.id)} variant="outlined" color="error">Borrar</Button></TableCell>
             </TableRow>
           ))}
@@ -45,12 +45,15 @@ const { products, removeProduct, clear, total } = useContext(context);
       </Table>
     </TableContainer>
     <Container sx={{display: 'flex', alignItems: 'center', justifyContent: 'end' }} >
-      <Button sx={{ marginRight: 2 }} onClick ={clear} variant="outlined" color="error">Vaciar carrito</Button>
       <h1>Total: {total}</h1>
+    </Container>
+    <Container sx={{display: 'flex', alignItems: 'center', justifyContent: 'end' }} >
+      <Button sx={{ marginRight: 2 }} onClick ={clear} variant="outlined" color="error">Vaciar carrito</Button>
       <Link  to="/payment">
       <Button sx={{ marginRight: 2 }} variant="outlined" color="success">Pagar</Button>
       </Link>
     </Container>
+
     </>
     :
     <Container>

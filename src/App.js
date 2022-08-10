@@ -1,6 +1,5 @@
 import NavBar from './components/NavBar';
 import { ItemListContainer } from './components/ItemListContainer';
-import { CartWidget } from './components/CartWidget';
 import {
   BrowserRouter,
   Routes,
@@ -19,8 +18,8 @@ function App() {
       <CustomProvider >
         <NavBar />
           <Routes>
-            <Route path="/" element={<ItemListContainer saludo={'Bienvenido a mi pagina react!'}/>}/>
-            <Route path="/category/:categoryId" element={<ItemListContainer saludo={'Bienvenido a mi pagina react!'}/>}/>
+            <Route path="/" element={<ItemListContainer saludo={'Bienvenido a mi pagina react hecha por Ezequiel Huayta Romay para CoderHouse!'}/>}/>
+            <Route path="/category/:categoryId" element={<ItemListContainer saludo={'Bienvenido a mi pagina react hecha por Ezequiel Huayta Romay para CoderHouse!'}/>}/>
             <Route path="/product/:productId" element={<ItemDetailContainer />}/>
             <Route path="cart/" element={<Cart/>}/>
             <Route path="/payment" element={<Form/>}/>
