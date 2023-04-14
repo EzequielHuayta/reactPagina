@@ -1,4 +1,4 @@
-# Ezequiel Huayta Romay
+# Ezequiel Huayta Romay (HECHO PARA CODERHOUSE)
 
 Mi pagina react clothes4you, un e-commerce donde podes comprar ropa.
 
